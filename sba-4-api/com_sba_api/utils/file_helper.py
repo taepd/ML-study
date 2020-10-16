@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import os
 import pandas as pd
-# import xlrd
+import xlrd
 import googlemaps
 import json
 '''
@@ -32,15 +32,10 @@ class FileReader:
 
     def xls_to_dframe(self, header, usecols) -> object:
         print(f'PANDAS VERSION: {pd.__version__}')
-        return pd.read_excel(self.new_file(), header=header, usecols=usecols)
+        return pd.read_excel(self.new_file(), header = header, usecols = usecols)
 
     def create_gmaps(self):
-        return googlemaps.Client(key='AIzaSyBz9GRH0blpoiLp1co3O5V3hXgwT928jyY')
+        return googlemaps.Client(key='')
 
     def json_load(self):
         return json.load(open(self.new_file(), encoding='UTF-8'))
-
-
-
-
-

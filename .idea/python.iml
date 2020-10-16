@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="sba-chatbot" />
     <orderEntry type="module" module-name="sba-chatbot" />
+    <orderEntry type="module" module-name="sba-chatbot" />
   </component>
 </module>
