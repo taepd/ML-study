@@ -1,6 +1,8 @@
-from sqlalchemy import Column, Integer, String,  
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
+from com_sba_api.ext.db import Base
 from sqlalchemy.dialects.mysql import DECIMAL, VARCHAR, LONGTEXT
+
 
 class User(Base):
 
@@ -18,11 +20,10 @@ class User(Base):
     @property
     def serialize(self):
         return {
-            'userid' : self.userid,
-            'password' : self.password,
-            'name' : self.name
+            'userid': self.userid,
+            'password': self.password,
+            'name': self.name
         }
-
 
 
 class UserDto(object):
