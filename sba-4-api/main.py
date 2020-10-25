@@ -1,33 +1,32 @@
 from flask import Flask
-from flask_jwt import JWT
 from flask_restful import Api
-
-from config import postgresqlConfig
-from resources.item import Item, ItemList
-from resources.store import Store, StoreList
-from resources.user import UserRegister
-from security import authenticate, identity
+from com_sba_api.ext.db import url, db
+from com_sba_api.ext.routes import initialize_routes
+from com_sba_api.item.api import Item, Items
+from com_sba_api.article.api import Article, Articles
+from com_sba_api.user import user
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+app.register_blueprint(user)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = postgresqlConfig
+
+print(url)
+app.config['SQLALCHEMY_DATABASE_URI'] = url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'Dese.Decent.Pups.BOOYO0OST'
+db.init_app(app)
 api = Api(app)
-
+'''
 @app.before_first_request
 def create_tables():
     db.create_all()
+with app.app_context():
+    db.create_all()
 
-jwt = JWT(app, authenticate, identity)  # Auto Creates /auth endpoint
+from com_sba_api.user.dao import UserDao
+UserDao.insert_many()
+'''
+initialize_routes(api)
 
-api.add_resource(Item, '/item/<string:name>')
-api.add_resource(ItemList, '/items')
-api.add_resource(UserRegister, '/register')
-api.add_resource(Store, '/store/<string:name>')
-api.add_resource(StoreList, '/stores')
 
-if __name__ == '__main__':
-    from db import db  #Avoid circular import
-    db.init_app(app)
-    app.run(debug=True)  # important to mention debug=True
