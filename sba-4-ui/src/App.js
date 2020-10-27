@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import {Nav} from './components'
-import {ItemDetail, ItemList, ModifyItem, RegisterItem, RemoveItem } from './container/item'
-import {UserRegister, UserLogin, UserDetail, UserModify, UserWithdrawal, UserList} from './container/user'
-import {ArticleList, EditArticle, ReadArticle, RemoveArticle, WriteArticle} from './container/article'
+import {ItemDetail, ItemList, ModifyItem, RegisterItem, RemoveItem } from './containers/item'
+import {UserRegister, UserLogin, UserDetail, UserModify, UserWithdrawal, UserList} from './containers/user'
+import {ArticleList, EditArticle, ReadArticle, RemoveArticle, ArticleWriteForm} from './containers/article'
 import {Home, User, Article, Item} from './templates'
 import { createStore, applyMiddleware, combineReducers} from 'redux'
 import {Provider} from'react-redux'
-import {itemReducer } from './container/item/ItemList'
+import {itemReducer } from './containers/item/ItemList'
 
 import ReduxThunk from 'redux-thunk'
 const rootReducer = combineReducers({
@@ -43,7 +43,7 @@ export default function App(){
                 <Route path='/edit-article' component={EditArticle}></Route>
                 <Route path='/read-article' component={ReadArticle}></Route>
                 <Route path='/remove-article' component={RemoveArticle}></Route>
-                <Route path='/write-article' component={WriteArticle}></Route>
+                <Route path='/article-write-form' component={ArticleWriteForm}></Route>
             </Provider>,    
         </Switch>
         </main>

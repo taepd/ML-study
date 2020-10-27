@@ -7,5 +7,6 @@
     <orderEntry type="module" module-name="sba-chatbot" />
     <orderEntry type="module" module-name="sba-chatbot" />
     <orderEntry type="module" module-name="sba-chatbot" />
+    <orderEntry type="module" module-name="sba_chatbot" />
   </component>
 </module>

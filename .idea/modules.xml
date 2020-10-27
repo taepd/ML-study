@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/python.iml" filepath="$PROJECT_DIR$/.idea/python.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sba_chatbot/.idea/sba-chatbot.iml" filepath="$PROJECT_DIR$/../sba_chatbot/.idea/sba-chatbot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sba_chatbot/.idea/sba_chatbot.iml" filepath="$PROJECT_DIR$/../sba_chatbot/.idea/sba_chatbot.iml" />
     </modules>
   </component>
 </project>
